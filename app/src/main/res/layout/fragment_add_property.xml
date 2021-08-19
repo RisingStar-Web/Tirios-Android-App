@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddPropertyFragment">
+
+    <data>
+
+        <variable
+            name="add_property"
+            type="com.ai.tirios.ui.add_properties.AddPropertyViewModel" />
+
+        <variable
+            name="is_edit_property"
+            type="Boolean" />
+
+        <variable
+            name="property"
+            type="com.ai.tirios.dataclasses.Property" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/maintenancebg"
+                android:padding="@dimen/_10sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->add_property.onBackArrowPressed()}"
+                    android:paddingRight="@dimen/_10sdp"
+                    app:srcCompat="@drawable/ic_arrow_back" />
+
+                <com.ai.tirios.custom.SFProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="@{is_edit_property? @string/update_property : @string/add_property }"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_15sdp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_verify_otp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/state"
+                    android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/spinner_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_grey_bg" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btn_bottom"
+                android:layout_below="@+id/ll_top">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <com.ai.tirios.custom.SFProRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/property_name" />
+
+                    <com.ai.tirios.custom.SPProRegularEditText
+                        android:id="@+id/et_property_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rect_grey_bg"
+                        android:maxLength="25"
+                        android:padding="@dimen/_10sdp"
+                        android:singleLine="true"
+                        android:text="@{property.name}" />
+
+                    <com.ai.tirios.custom.SFProRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/street" />
+
+                    <com.ai.tirios.custom.SPProRegularEditText
+                        android:id="@+id/et_street"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rect_grey_bg"
+                        android:padding="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text="@{property.street}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/city" />
+
+                            <com.ai.tirios.custom.SPProRegularEditText
+                                android:id="@+id/et_city"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/rect_grey_bg"
+                                android:padding="@dimen/_10sdp"
+                                android:textColor="@color/black"
+                                android:text="@{property.city}" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/zip_code" />
+
+                            <com.ai.tirios.custom.SPProRegularEditText
+                                android:id="@+id/et_zip_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/rect_grey_bg"
+                                android:padding="@dimen/_10sdp"
+                                android:textColor="@color/black"
+                                android:text="@{property.zipCode}" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.ai.tirios.custom.SFProRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/mortgage_number" />
+
+                    <com.ai.tirios.custom.SPProRegularEditText
+                        android:id="@+id/et_mortgage_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rect_grey_bg"
+                        android:inputType="number"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@{property.mortgageNumber}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mortgage_amount" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/rect_grey_bg"
+                                android:orientation="horizontal">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:text="$"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <com.ai.tirios.custom.CurrencyEditText
+                                    android:id="@+id/et_mortgage_amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/transparent"
+                                    android:inputType="number"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:paddingBottom="@dimen/_10sdp"
+                                    android:text="@{property.mortgageAmount != 0 ? property.getMortgageAmountInDoubleNotDollar : @string/empty_string}"
+                                    android:textSize="@dimen/_14sdp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mortgage_due_date" />
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:id="@+id/tv_mortgage_due_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/rect_grey_bg"
+                                android:onClick="@{()->add_property.datePicker(@string/mortgage_due_date)}"
+                                android:padding="@dimen/_10sdp"
+                                android:text="@{property.getNormalMortgageDueDate()}"
+                                android:textSize="@dimen/_14sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.ai.tirios.custom.SFProRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/property_tax_no" />
+
+                    <com.ai.tirios.custom.SPProRegularEditText
+                        android:id="@+id/et_property_tax_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rect_grey_bg"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@{property.propertyTaxNumber}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tax_amount" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/rect_grey_bg"
+                                android:orientation="horizontal">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:text="$"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <com.ai.tirios.custom.CurrencyEditText
+                                    android:id="@+id/et_tax_amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/transparent"
+                                    android:inputType="number"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:paddingBottom="@dimen/_10sdp"
+                                    android:text="@{property.propertyTaxAmount != 0 ? property.getPropertyTaxAmountInDoubleNotDollar : @string/empty_string}"
+                                    android:textSize="@dimen/_14sdp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tax_due_date" />
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:id="@+id/tv_due_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/rect_grey_bg"
+                                android:onClick="@{()->add_property.datePicker(@string/due_date)}"
+                                android:padding="@dimen/_10sdp"
+                                android:text="@{property.getNormalPropertyTaxDueDate()}"
+                                android:textSize="@dimen/_14sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:orientation="vertical">
+
+                        <com.ai.tirios.custom.SFProRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Property Images"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <ImageView
+                            android:id="@+id/image_photo"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_margin="@dimen/_20sdp"
+                            android:onClick="@{()->add_property.dispatchTakePictureIntent()}"
+                            android:src="@drawable/ic_photo_placeholder"
+                            bind:loadimageDrawable="@{@drawable/ic_photo_placeholder}" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:id="@+id/btn_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@drawable/rect_solidorange_5corner"
+                android:gravity="center"
+                android:onClick="@{()->add_property.addProperty()}"
+                android:padding="@dimen/_10sdp"
+                android:text="@{is_edit_property? @string/update : @string/add}"
+                android:textAllCaps="true"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

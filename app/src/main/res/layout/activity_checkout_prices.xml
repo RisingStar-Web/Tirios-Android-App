@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.checkout_prices.CheckoutPricesActivity">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.checkout_prices.CheckoutPricesActivity" />
+
+        <variable
+            name="checkout_prices"
+            type="com.ai.tirios.ui.checkout_prices.CheckoutPricesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_subscription"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:padding="@dimen/_15sdp"
+            android:onClick="@{()->activity.onBackPressed()}"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/rect_button_orange"
+                android:text="@string/monthly_fee"
+                android:textColor="@color/orange"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_22sdp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/circle_background"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_40sdp" />
+
+                <com.ai.tirios.custom.SFProSemiboldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/per_home"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_22sdp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/first_3_months_no_fee"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17sdp" />
+
+        <com.ai.tirios.custom.SFProBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/rect_solidorange_30corner"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:onClick="@{()->activity.onBackPressed()}"
+            android:text="@string/back_to_signup"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+
+    </LinearLayout>
+
+</layout>

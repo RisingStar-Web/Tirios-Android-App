@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.signup.SignUpActivity">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.signup.SignUpActivity" />
+
+        <variable
+            name="sign_up"
+            type="com.ai.tirios.ui.signup.SignUpViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_send_otp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:padding="@dimen/_15sdp"
+            android:onClick="@{()->activity.onBackPressed()}"
+            app:srcCompat="@drawable/ic_arrow_back_white" />
+
+        <com.ai.tirios.custom.SFProSemiboldTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:gravity="center"
+            android:text="@string/register"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/rect_white"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_30sdp"
+                    android:gravity="center"
+                    android:text="@string/enter_mobile_number"
+                    android:textColor="@color/greytxt"
+                    android:textSize="@dimen/_15sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_btn_height"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:background="@drawable/rect_grey"
+                    android:orientation="horizontal">
+
+                    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        app:ccp_defaultNameCode="US"
+                        app:ccp_hideNameCode="true" />
+
+                    <com.ai.tirios.custom.SPProRegularEditText
+                        android:id="@+id/et_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorTransparent"
+                        android:gravity="center_vertical"
+                        android:hint="@string/dummy_mobile"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/et_btn_height"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/rect_light_pink"
+                android:gravity="center"
+                android:onClick="@{()->sign_up.onGenerateOtp()}"
+                android:text="@string/send_otp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

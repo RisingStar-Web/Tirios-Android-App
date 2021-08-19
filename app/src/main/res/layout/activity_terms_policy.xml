@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.maintenance_bot.MaintenanceBotActivity">
+
+    <data>
+        <variable
+            name="terms"
+            type="com.ai.tirios.ui.setting.SettingsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_verify_otp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/maintenancebg">
+
+            <com.ai.tirios.custom.SFProBoldTextView
+                android:id="@+id/condtionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/orange"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp" />
+
+            <com.ai.tirios.custom.SFProRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tirios_dismiss"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textColor="@color/orange"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{()->terms.onBackArrowPressed()}"/>
+        </RelativeLayout>
+
+        <com.github.barteksc.pdfviewer.PDFView
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:id="@+id/pdfView"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/rl_top"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</layout>

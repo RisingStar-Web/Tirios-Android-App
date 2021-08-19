@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.tenant_property_details.TenantDetailsFragment">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="tenant_details"
+            type="com.ai.tirios.ui.tenant_property_details.TenantDetailsViewModel" />
+        <variable
+            name="tenant"
+            type="com.ai.tirios.dataclasses.Tenants" />
+        <variable
+            name="property"
+            type="com.ai.tirios.dataclasses.Property" />
+        <variable
+            name="lease_agrement"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_arrow_back"
+                    android:padding="@dimen/_15sdp"
+                    android:onClick="@{()->tenant_details.onBackPress()}"/>
+
+                <com.ai.tirios.custom.SFProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/properties_details"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_15sdp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fitsSystemWindows="true"
+            android:background="@drawable/bg_verify_otp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_170sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_125sdp"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/ic_home_background" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_view_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_80sdp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            app:cardCornerRadius="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="@dimen/_80sdp"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_10sdp">
+
+                                <com.ai.tirios.custom.SFProMediumTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/property"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_15sdp"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/ic_location" />
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:text="@{property.street+' '+property.city+' '+property.state+' '+property.zipCode}"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="@dimen/_10sdp">
+
+                                    <com.ai.tirios.custom.SFProBoldTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/rect_solid_gray_one_10_stroke"
+                                        android:text="@string/rent"
+                                        android:textColor="@color/white"
+                                        android:paddingStart="@dimen/_20sdp"
+                                        android:paddingEnd="@dimen/_20sdp"
+                                        android:paddingTop="@dimen/_5sdp"
+                                        android:paddingBottom="@dimen/_5sdp"
+                                        android:layout_alignParentStart="true"/>
+
+                                    <com.ai.tirios.custom.SFProBoldTextView
+                                        android:id="@+id/tv_rent_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerHorizontal="true"
+                                        android:textColor="@color/red"
+                                        android:text="@{tenant.getTenantsRentInDouble+' '+@string/per_month}"
+                                        android:layout_marginEnd="@dimen/_5sdp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_15sdp"
+                                android:text="@string/view_lease_agreement"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_100sdp"
+                                bind:loadimage="@{lease_agrement != null ? lease_agrement : null}"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="@dimen/dimen5dp">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/no_of_family_members"/>
+
+                                <com.ai.tirios.custom.SFProBoldTextView
+                                    android:id="@+id/tv_family_members"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{Integer.toString(tenant.numberOfFamilyMembers)}"
+                                    android:textColor="@color/black"
+                                    android:background="@drawable/rect_solidwhite_5corner"
+                                    android:padding="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginStart="@dimen/_5sdp">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/rent_deposit"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:background="@drawable/rect_solidwhite_5corner">
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="$"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14sdp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="@dimen/_5sdp"/>
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:id="@+id/et_rent_deposit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:paddingTop="@dimen/_10sdp"
+                                        android:paddingBottom="@dimen/_10sdp"
+                                        android:text="@{tenant.getTenantsRentDepositInDouble}"
+                                        android:textSize="@dimen/_14sdp"
+                                        android:textColor="@color/black"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="@dimen/_5sdp">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/payment_frequency"/>
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rect_solidwhite_5corner"
+                                    android:padding="@dimen/_10sdp"
+                                    android:textColor="@color/black"
+                                    android:text="@{tenant.paymentFrequency == 1 ? @string/monthly : @string/bi_monthly}"
+                                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginStart="@dimen/_5sdp">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/first_due_date"/>
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:id="@+id/tv_first_due_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rect_solidwhite_5corner"
+                                    android:padding="@dimen/_10sdp"
+                                    android:textColor="@color/black"
+                                    android:text="@{tenant.getNormalDueDateWithMonthName()}"
+                                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.ai.tirios.custom.SFProRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/second_due_data"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="@{tenant.paymentFrequency == 1 ? View.GONE: View.VISIBLE }"/>
+
+                        <com.ai.tirios.custom.SFProRegularTextView
+                            android:id="@+id/tv_second_due_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rect_solidwhite_5corner"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:text="@{tenant.getNormalSecondDueDateWithMonthName()}"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:visibility="@{tenant.paymentFrequency == 1 ? View.GONE: View.VISIBLE }" />
+
+                        <com.ai.tirios.custom.SFProRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/landlord_details"
+                            android:textSize="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_10sdp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_5sdp">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/name"/>
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{property.landlordFirstName+' '+property.landlordLastName}"
+                                    android:textColor="@color/black"
+                                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/phone_number"
+                                    android:layout_marginTop="@dimen/_10sdp"/>
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{property.landlordMobile}"
+                                    android:textColor="@color/black"
+                                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <com.ai.tirios.custom.SFProRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/property_gallery"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sdp"
+                            android:visibility="@{property.documents.size() != 0 ? View.VISIBLE : View.GONE}"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_marginTop="@dimen/_5sdp">
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <com.ai.tirios.custom.SFProSemiboldTextView
+            android:id="@+id/tv_add_tenant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_solidorange_5corner"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="@string/pay_rent"
+            android:textColor="@color/white"
+            android:onClick="@{()->tenant_details.payRent()}"/>
+
+    </LinearLayout>
+
+</layout>

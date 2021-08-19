@@ -1,0 +1,70 @@
+package com.ai.tirios.dataclasses
+
+data class ResponseUpdateInvoice(
+    val CreatedBy: Any,
+    val CreatedOn: String,
+    val Discount: Int,
+    val Document: Documents,
+    val Id: Int,
+    val IsActive: Boolean,
+    val IsPrefferedDate: Boolean,
+    val MaintenanceRequest: MaintenanceRequests,
+    val MaintenanceRequestId: Int,
+    val ModifiedBy: Any,
+    val ModifiedOn: String,
+    val OrdeId: String,
+    val PaymentDate: Any,
+    val PaymentProcessed: Int,
+    val PaymentStatus: Int,
+    val Property: Property,
+    val PropertyId: Int,
+    val ServiceDate: String,
+    val Subtotal: Int,
+    val Tax: Double,
+    val TenantProperty: TenantProperty,
+    val TenantPropertyId: Int,
+    val Total: Double,
+    val TotalAmount: Int
+) {
+    data class MaintenanceRequests(
+        val CreatedBy: Any,
+        val CreatedOn: String,
+        val Description: Any,
+        val Documents: Any,
+        val FirstPreferredDate: String,
+        val Id: Int,
+        val IsActive: Boolean,
+        val ModifiedBy: Any,
+        val ModifiedOn: String,
+        val PreferredDate: String,
+        val ScheduleDate: Any,
+        val SecondPreferredDate: String,
+        val SerivceProviderMobile: String,
+        val ServiceCategory: Int,
+        val ServiceDetails: List<ServiceDetail>,
+        val ServiceProvider: Any,
+        val ServiceProviderId: Int,
+        val ServiceProviderName: String,
+        val ServiceType: String,
+        val Status: Int,
+        val TenantProperty: TenantProperty,
+        val TenantPropertyId: Int,
+        val VideoMeetLink: String
+    ) {
+        data class ServiceDetail(
+            val Amount: Int,
+            val CreatedBy: Any,
+            val CreatedOn: String,
+            val Description: String,
+            val Id: Int,
+            val IsActive: Boolean,
+            val MaintenanceRequestId: Int,
+            val ModifiedBy: Any,
+            val ModifiedOn: String,
+            val PricePerHour: Int,
+            val Quantity: Int,
+            val ServiceCategory: Int,
+            val ServiceProviderId: Int
+        )
+    }
+}

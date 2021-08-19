@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="payment_frequency">
+        <item>Monthly</item>
+        <item>Bi-Monthly</item>
+    </string-array>
+    <string-array name="account_type">
+        <item>Select Account Type</item>
+        <item>Personal Checkings</item>
+        <item>Personal Savings</item>
+    </string-array>
+</resources>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.register.RegisterActivity">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.register.RegisterActivity" />
+
+        <variable
+            name="register"
+            type="com.ai.tirios.ui.register.RegisterViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_blur"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen10dp"
+            android:layout_marginTop="@dimen/dimen30dp"
+            android:padding="@dimen/_15sdp"
+            android:onClick="@{()->activity.onBackPressed()}"
+            app:srcCompat="@drawable/ic_arrow_back_white" />
+
+        <com.ai.tirios.custom.SFProSemiboldTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:gravity="center"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/rect_white"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <com.ai.tirios.custom.SPProRegularEditText
+                    android:id="@+id/et_firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_grey"
+                    android:hint="@string/first_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:nextFocusForward="@+id/et_lastName"
+                    android:padding="@dimen/_10sdp"
+                    android:maxLength="25"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint" />
+
+                <com.ai.tirios.custom.SPProRegularEditText
+                    android:id="@+id/et_lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_grey"
+                    android:hint="@string/last_name"
+                    android:maxLength="25"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:nextFocusForward="@+id/et_password"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_grey"
+                    android:orientation="horizontal">
+
+                    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        app:ccp_clickable="false"
+                        app:ccp_defaultNameCode="US"
+                        app:ccp_hideNameCode="true"
+                        app:ccp_countryPreference="US"/>
+
+                    <com.ai.tirios.custom.SPProRegularEditText
+                        android:id="@+id/et_mobile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorTransparent"
+                        android:gravity="left"
+                        android:hint="@string/mobile_number"
+                        android:enabled="false"
+                        android:clickable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:padding="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint" />
+                </LinearLayout>
+
+                <com.ai.tirios.custom.SPProRegularEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_grey"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:nextFocusForward="@+id/et_cPassword"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint" />
+
+                <com.ai.tirios.custom.SPProRegularEditText
+                    android:id="@+id/et_cPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_grey"
+                    android:hint="@string/confirm_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint" />
+
+            </LinearLayout>
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/rect_light_pink"
+                android:gravity="center"
+                android:onClick="@{()->register.onSubmitClick()}"
+                android:text="@string/sign_up"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17sdp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

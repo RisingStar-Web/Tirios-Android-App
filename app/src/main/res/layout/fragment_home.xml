@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.HomeFragment">
+
+    <data>
+        <variable
+            name="home"
+            type="com.ai.tirios.ui.home.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/ic_home_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dimen40dp">
+
+            <ImageView
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_profile"
+                app:srcCompat="@drawable/ic_profile"
+                android:layout_alignParentStart="true"/>
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_tirios_home_logo"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:id="@+id/notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_logout"
+                android:background="@drawable/ic_logout"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/semi_black"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_50sdp">
+
+            <com.ai.tirios.custom.SFProBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"/>
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

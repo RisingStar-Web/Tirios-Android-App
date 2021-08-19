@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OwnedFragment">
+
+    <data>
+        <variable
+            name="owned"
+            type="com.ai.tirios.ui.owned.OwnedViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_15sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/rect_solidred_5corner"
+            android:padding="@dimen/dimen10dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:onClick="@{()->owned.addProperty()}">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_add_property"/>
+
+            <com.ai.tirios.custom.SFProMediumTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_property"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</layout>

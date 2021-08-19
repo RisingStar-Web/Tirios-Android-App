@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ai.tirios.custom.SFProRegularTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text0"
+    style="?android:attr/spinnerItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:spinnerMode="dropdown"
+    android:padding="@dimen/dimen10dp"
+    android:textColor="@color/black"
+    android:drawableEnd="@drawable/ic_spinner_drop_down_icon"/>

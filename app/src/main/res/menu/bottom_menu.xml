@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home"/>
+
+        <item
+            android:id="@+id/propertiesFragment"
+            android:icon="@drawable/ic_properties"
+            android:title="@string/properties"/>
+
+        <item
+            android:id="@+id/maintenanceFragment"
+            android:icon="@drawable/ic_maintenance"
+            android:title="@string/maintenance"/>
+
+        <item
+            android:id="@+id/transactionsFragment"
+            android:icon="@drawable/ic_transactions"
+            android:title="@string/transactions"/>
+
+    </group>
+
+</menu>

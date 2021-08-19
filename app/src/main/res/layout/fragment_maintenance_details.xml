@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MaintenanceDetailsFragment">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.maintenance_details.MaintenanceDetailsFragment" />
+        <variable
+            name="maintenance_details"
+            type="com.ai.tirios.ui.maintenance_details.MaintenanceDetailsViewModel" />
+        <variable
+            name="maintenance"
+            type="com.ai.tirios.dataclasses.ResponseMaintainance" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_2sdp"
+                android:padding="@dimen/_10sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_15sdp"
+                    android:paddingStart="@dimen/_4sdp"
+                    android:onClick="@{()->maintenance_details.onBackArrowPressed()}"
+                    app:srcCompat="@drawable/ic_arrow_back" />
+
+                <com.ai.tirios.custom.SFProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/maintenance_request_details"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_15sdp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_verify_otp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/service_category" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_solidwhite_5corner"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{maintenance.getServiceProviderNameFromId()}" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/first_preferred_date" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_solidwhite_5corner"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{maintenance.getLocalFirstPreferredNormalDate()}" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/second_preferred_date" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_solidwhite_5corner"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{maintenance.getLocalSecondPreferredNormalDate()}" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/photos" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@color/white">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/videos" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@color/white">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcView_videos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/tenant_name" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:id="@+id/tv_tenantName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_solidwhite_5corner"
+                    android:padding="@dimen/_10sdp"/>
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/mobile_number" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:id="@+id/tv_tenantMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_solidwhite_5corner"
+                    android:padding="@dimen/_10sdp" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/tele_service_video_link" />
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:id="@+id/tv_videoLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_solidwhite_5corner"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{maintenance.VideoMeetLink}"
+                    android:onClick="@{()->activity.onClickLink()}"
+                    android:layout_marginBottom="@dimen/_10sdp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

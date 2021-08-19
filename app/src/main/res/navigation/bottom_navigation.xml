@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ai.tirios.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/propertiesFragment"
+        android:name="com.ai.tirios.ui.properties.PropertiesFragment"
+        android:label="@string/properties"
+        tools:layout="@layout/fragment_properties">
+        <action
+            android:id="@+id/property_list_to_details"
+            app:destination="@id/propertyDetailsFragment"/>
+        <action
+            android:id="@+id/propertiesList_to_addProperty"
+            app:destination="@+id/addPropertyFragment"/>
+        <action
+            android:id="@+id/propertiesList_to_tenantDetails"
+            app:destination="@+id/tenantDetailsFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/maintenanceFragment"
+        android:name="com.ai.tirios.ui.maintenance.MaintenanceFragment"
+        android:label="@string/maintenance"
+        tools:layout="@layout/fragment_maintenance" >
+
+        <action
+            android:id="@+id/maintenance_to_maintenanceDetails"
+            app:destination="@+id/maintenanceDetailsFragment"/>
+
+        <action
+            android:id="@+id/maintenance_to_invoice"
+            app:destination="@+id/invoiceFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.ai.tirios.ui.transactions.TransactionsFragment"
+        android:label="@string/transactions"
+        tools:layout="@layout/fragment_transactions" />
+
+    <fragment
+        android:id="@+id/propertyDetailsFragment"
+        android:name="com.ai.tirios.ui.property_details.PropertyDetailsFragment"
+        android:label="PropertyDetailsFragment"
+        tools:layout="@layout/fragment_property_details">
+        <action
+            android:id="@+id/property_details_to_properties_list"
+            app:destination="@id/propertiesFragment"/>
+        <action
+            android:id="@+id/property_details_to_ad_tenant"
+            app:destination="@id/adTenantFragment"/>
+        <action
+            android:id="@+id/propertiesList_to_addProperty"
+            app:destination="@+id/addPropertyFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/adTenantFragment"
+        android:name="com.ai.tirios.ui.add_tenant.AddTenantFragment"
+        android:label="fragment_ad_tenant"
+        tools:layout="@layout/fragment_ad_tenant" >
+        <action
+            android:id="@+id/adtenant_to_property_details"
+            app:destination="@id/propertyDetailsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addPropertyFragment"
+        android:name="com.ai.tirios.ui.add_properties.AddPropertyFragment"
+        android:label="fragment_add_property"
+        tools:layout="@layout/fragment_add_property">
+        <action
+            android:id="@+id/addProperty_to_PropertyList"
+            app:destination="@id/propertiesFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/tenantDetailsFragment"
+        android:name="com.ai.tirios.ui.tenant_property_details.TenantDetailsFragment"
+        android:label="fragment_tenant_details"
+        tools:layout="@layout/fragment_tenant_details">
+        <action
+            android:id="@+id/tenantDetails_to_rentedList"
+            app:destination="@id/propertiesFragment"/>
+        <action
+            android:id="@+id/tenantDetails_to_selectPayment"
+            app:destination="@+id/selectPaymentFragment"/>
+        <action
+            android:id="@+id/tenantDetails_to_maintenance"
+            app:destination="@+id/maintenanceFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/maintenanceDetailsFragment"
+        android:name="com.ai.tirios.ui.maintenance_details.MaintenanceDetailsFragment"
+        android:label="fragment_maintenance_details"
+        tools:layout="@layout/fragment_maintenance_details">
+
+        <action
+            android:id="@+id/maintenanceDetails_to_maintenance"
+            app:destination="@+id/maintenanceFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectPaymentFragment"
+        android:name="com.ai.tirios.ui.select_payment.SelectPaymentFragment"
+        android:label="fragment_select_payment"
+        tools:layout="@layout/fragment_select_payment">
+
+        <action
+            android:id="@+id/selectPayment_to_tenantDetails"
+            app:destination="@+id/tenantDetailsFragment"/>
+
+        <action
+            android:id="@+id/selectPayment_to_invoice"
+            app:destination="@+id/invoiceFragment"/>
+
+        <action
+            android:id="@+id/selectPayment_to_maintenance"
+            app:destination="@+id/maintenanceFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/invoiceFragment"
+        android:name="com.ai.tirios.ui.invoice.InvoiceFragment"
+        android:label="@string/invoice"
+        tools:layout="@layout/fragment_invoice">
+
+        <action
+            android:id="@+id/invoice_to_maintenance"
+            app:destination="@id/maintenanceFragment"/>
+
+        <action
+            android:id="@+id/invoice_to_select_payment"
+            app:destination="@+id/selectPaymentFragment"/>
+    </fragment>
+
+</navigation>

@@ -1,0 +1,31 @@
+package com.ai.tirios.dataclasses
+
+data class Invoice(
+    val Address: String,
+    val BalanceDue: Double,
+    val Discount: Double,
+    val Id: Int,
+    val IsPrefferedDate: Boolean,
+    val LandlordEmail: String,
+    val LandlordMobile: String,
+    val LandlordName: String,
+    val MaintenanceRequestId: String,
+    val MaintenanceStatus: Int,
+    val MaintenanceStatusValue: Any,
+    val OrdeId: String,
+    val PaymentDate: Any,
+    val PaymentProcessed: Double,
+    val PaymentStatus: Int,
+    val PaymentStatusValue: String,
+    val PayrixCustId: Any,
+    val PayrixMerchantId: Any,
+    val ServiceDate: String,
+    val ServiceDescription: String,
+    val ServiceDetails: List<ServiceDetail>,
+    val ServiceProviderPhone: String,
+    val Subtotal: Double,
+    val Tax: Double,
+    val Total: Double,
+    val serviceprovideraddress: String,
+    val serviceprovideremail: String
+)

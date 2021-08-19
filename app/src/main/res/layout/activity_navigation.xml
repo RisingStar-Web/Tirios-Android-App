@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.navigation.NavigationActivity">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.navigation.NavigationActivity" />
+
+        <variable
+            name="navigation"
+            type="com.ai.tirios.ui.navigation.NavigationViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/login_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_tirios_login_logo" />
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.ai.tirios.custom.SFProBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/rect_solidorange_30corner"
+                android:onClick="onClickCheckOutPrice"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/checkout_prices"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+
+            <com.ai.tirios.custom.SFProBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/rect_light_pink"
+                android:onClick="onClickSignUp"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/new_member_sign_up"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="horizontal">
+
+                <com.ai.tirios.custom.SFProRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/already_a_member"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <com.ai.tirios.custom.SFProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:onClick="onClickSignIn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_13sdp" />
+            </LinearLayout>
+
+            <com.ai.tirios.custom.SFProMediumTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rights_reserved"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

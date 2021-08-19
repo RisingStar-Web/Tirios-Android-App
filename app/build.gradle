@@ -1,0 +1,226 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.ai.tirios"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 24
+        versionName "1.0.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false //<- add this line
+    }
+    signingConfigs {
+        debug {
+            storeFile rootProject.file("t-debug.keystore")
+            storePassword "T!r!0s"
+            keyAlias "tirios"
+            keyPassword "T!r!0s"
+        }
+        release {
+            storeFile rootProject.file('t-release.keystore')
+            storePassword "T!r!0s"
+            keyAlias "tirios"
+            keyPassword "T!r!0s"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            useProguard true
+            debuggable false
+            buildConfigField "String", "IDENTITY_BASE_URL", "\"http://api-identity.tirios.ai/\""
+            buildConfigField "String", "PROPERTY_BASE_URL", "\"http://api-property.tirios.ai/api/\""
+            buildConfigField "String", "IDENTITY_SWAGGER_BASE_URL", "\"http://api-service.tirios.ai/api/\""
+            buildConfigField "String", "NOTIFICATION_BASE_URL", "\"http://api-notification.tirios.ai/\""
+
+            buildConfigField "String", "WATSON_ID", "\"f53d238e-5a6b-4fc4-bc0c-86ae7b7eab46\""
+            buildConfigField "String", "WATSON_MAINTENANCE_ID", "\"8b588119-c2a8-43e2-a55b-199eab40167e\""
+            buildConfigField "String", "WATSON_ADD_TENANT_ID", "\"093c3649-ec66-4732-a303-826a2811e763\""
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        releaseDebug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField "String", "IDENTITY_BASE_URL", "\"http://api-identity.tirios.ai/\""
+            buildConfigField "String", "PROPERTY_BASE_URL", "\"http://api-property.tirios.ai/api/\""
+            buildConfigField "String", "IDENTITY_SWAGGER_BASE_URL", "\"http://api-service.tirios.ai/api/\""
+            buildConfigField "String", "NOTIFICATION_BASE_URL", "\"http://api-notification.tirios.ai/\""
+
+            buildConfigField "String", "WATSON_ID", "\"f53d238e-5a6b-4fc4-bc0c-86ae7b7eab46\""
+            buildConfigField "String", "WATSON_MAINTENANCE_ID", "\"8b588119-c2a8-43e2-a55b-199eab40167e\""
+            buildConfigField "String", "WATSON_ADD_TENANT_ID", "\"093c3649-ec66-4732-a303-826a2811e763\""
+
+            signingConfig signingConfigs.debug
+        }
+        development {
+            minifyEnabled false
+            useProguard true
+            debuggable false
+            buildConfigField "String", "IDENTITY_BASE_URL", "\"http://api-dev-identity.tirios.ai/\""
+            buildConfigField "String", "PROPERTY_BASE_URL", "\"http://api-dev-property.tirios.ai/api/\""
+            buildConfigField "String", "IDENTITY_SWAGGER_BASE_URL", "\"http://api-dev-services.tirios.ai/api/\""
+            buildConfigField "String", "NOTIFICATION_BASE_URL", "\"http://api-dev-notification.tirios.ai/\""
+
+            buildConfigField "String", "WATSON_ID", "\"aac72cb8-5e9f-4b98-b661-e37443d79652\""
+            buildConfigField "String", "WATSON_MAINTENANCE_ID", "\"cf2e8f23-9b99-4170-b2ba-b6f6792e9701\""
+            buildConfigField "String", "WATSON_ADD_TENANT_ID", "\"3c987d61-064f-4745-8dc7-74ad66d092cf\""
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        developmentDebug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField "String", "IDENTITY_BASE_URL", "\"http://api-dev-identity.tirios.ai/\""
+            buildConfigField "String", "PROPERTY_BASE_URL", "\"http://api-dev-property.tirios.ai/api/\""
+            buildConfigField "String", "IDENTITY_SWAGGER_BASE_URL", "\"http://api-dev-services.tirios.ai/api/\""
+            buildConfigField "String", "NOTIFICATION_BASE_URL", "\"http://api-dev-notification.tirios.ai/\""
+
+            buildConfigField "String", "WATSON_ID", "\"aac72cb8-5e9f-4b98-b661-e37443d79652\""
+            buildConfigField "String", "WATSON_MAINTENANCE_ID", "\"cf2e8f23-9b99-4170-b2ba-b6f6792e9701\""
+            buildConfigField "String", "WATSON_ADD_TENANT_ID", "\"3c987d61-064f-4745-8dc7-74ad66d092cf\""
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    flavorDimensions "version"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
+// UI
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+// ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Lifecycles only (without ViewModel or LiveData)
+    /*implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    // Jetpack Compose Integration for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03"
+    // Annotation processor
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"*/
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+// LiveData
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0'
+
+// For Dagger
+    implementation 'com.google.dagger:dagger:2.21'
+    implementation 'com.google.dagger:dagger-android-support:2.21'
+    kapt 'com.google.dagger:dagger-compiler:2.21'
+    kapt "com.google.dagger:dagger-android-processor:2.21"
+
+//navigation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+//MultiDesk
+    implementation 'com.android.support:multidex:1.0.3'
+
+//glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+//Room Database
+    // Dependencies for working with Architecture components
+    // You'll probably have to update the version numbers in build.gradle (Project)
+// Room components
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+//    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
+//Coroutines
+//    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
+//    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+
+// Retrofit
+    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+    implementation("com.squareup.retrofit2:retrofit:2.4.0") {
+        exclude module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+
+//country code picker
+    implementation 'com.github.joielechong:countrycodepicker:2.4.2'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //dimension for designing
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    //otp view
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx'
+
+    //ibm watson chatbot
+    implementation 'com.ibm.watson:ibm-watson:9.0.2'
+
+    //withpersona
+    implementation 'com.withpersona.sdk:inquiry:1.1.3'
+
+    //multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //pdfviewer
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+
+    // Declare the dependencies for the Dynamic Links and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-messaging'
+
+//    implementation 'com.google.firebase:firebase-invites'
+
+    //facebook
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+}

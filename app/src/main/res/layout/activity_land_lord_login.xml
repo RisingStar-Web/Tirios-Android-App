@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.landlord_login.LandLordLoginActivity">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.landlord_login.LandLordLoginActivity" />
+        <variable
+            name="land_lord_login"
+            type="com.ai.tirios.ui.landlord_login.LandLordViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/ic_login_background_logo"
+            android:padding="@dimen/_17sdp"
+            android:gravity="bottom">
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textSize="@dimen/_21sdp"
+                android:layout_marginBottom="@dimen/_17sdp"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/et_btn_height"
+                android:orientation="horizontal"
+                android:background="@drawable/rect_solidgray_5corner">
+
+                <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:ccp_hideNameCode="true"
+                    app:ccp_defaultNameCode="US"
+                    android:layout_marginStart="@dimen/_5sdp"/>
+
+                <com.ai.tirios.custom.SPProRegularEditText
+                    android:id="@+id/et_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:hint="@string/login_phone_number_hint"
+                    android:layout_marginLeft="@dimen/_minus10sdp"
+                    android:inputType="phone"
+                    android:maxLength="12"
+                    android:background="@color/colorTransparent"/>
+
+            </LinearLayout>
+
+            <com.ai.tirios.custom.SPProRegularEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/et_btn_height"
+                android:hint="@string/password"
+                android:background="@drawable/rect_solidgray_5corner"
+                android:padding="@dimen/_10sdp"
+                android:inputType="textPassword"
+                android:layout_marginTop="@dimen/_8sdp"/>
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/et_btn_height"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:background="@drawable/rect_solidorange_5corner"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:onClick="@{()-> land_lord_login.onLoginClick()}"/>
+
+            <com.ai.tirios.custom.SFProRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password_question"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_13sdp"
+                android:layout_gravity="end"
+                android:onClick="@{()-> land_lord_login.onForgotPasswordClick()}"
+                android:layout_marginTop="@dimen/_5sdp"/>
+
+            <com.ai.tirios.custom.SFProRegularTextView
+                android:id="@+id/tv_titios_rights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/tirios_all_rights_reserved"
+                android:layout_marginTop="@dimen/dimen50dp"
+                android:layout_marginBottom="@dimen/dimen30dp"
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_15sdp"
+                android:onClick="@{()->activity.onBackPressed()}"
+                app:srcCompat="@drawable/ic_arrow_back_white" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

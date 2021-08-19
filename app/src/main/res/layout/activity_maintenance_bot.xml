@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.maintenance_bot.MaintenanceBotActivity">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.ai.tirios.ui.maintenance_bot.MaintenanceBotActivity" />
+
+        <variable
+            name="maintenance"
+            type="com.ai.tirios.ui.maintenance_bot.MaintenanceBotViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_verify_otp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:onClick="@{()->activity.onBackPressed()}"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/service_request"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_bottom"
+            android:layout_below="@+id/rl_top" />
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp">
+
+            <com.ai.tirios.custom.SPProRegularEditText
+                android:id="@+id/et_msg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:hint="@string/type_a_msg"
+                android:maxWidth="@dimen/_150sdp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_hint"
+                android:textSize="@dimen/_15sdp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:onClick="@{()->maintenance.onAttachFile()}"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/ic_attachment" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->maintenance.onSendMsg()}"
+                android:background="@drawable/ic_send" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

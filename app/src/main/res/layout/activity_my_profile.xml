@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    <!--    <variable
+            name="my_profile_activtity"
+            type="com.ai.tirios.ui.my_profile.MyProfileActivity" />
+-->
+        <variable
+            name="my_profile"
+            type="com.ai.tirios.ui.my_profile.MyProfileViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_verify_otp_white"
+        tools:context=".ui.my_profile.MyProfileActivity">
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:text="@string/my_profile"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:alpha="1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_15sdp"
+            android:paddingStart="@dimen/_2sdp"
+            android:src="@drawable/ic_arrow_back_black"
+            android:onClick="@{()-> my_profile.onBackArrowPressed()}"
+            app:layout_constraintBottom_toBottomOf="@+id/header_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header_title" />
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/header_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/first_name"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintStart_toStartOf="@+id/imageViewBack"
+            app:layout_constraintTop_toBottomOf="@+id/header_title"
+            />
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/et_firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@null"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:maxLength="25"
+            android:textAlignment="gravity"
+            android:gravity="end"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="@+id/header_firstname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header_firstname" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/semi_black"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_firstname"
+            />
+
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/header_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:text="@string/last_name"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintStart_toStartOf="@+id/header_firstname"
+            app:layout_constraintTop_toBottomOf="@+id/header_firstname"
+            />
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/et_lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:maxLength="25"
+            android:gravity="end"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:background="@null"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/header_lastname"
+            app:layout_constraintTop_toTopOf="@+id/header_lastname"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/semi_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_lastname"/>
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/header_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:text="@string/email"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintStart_toStartOf="@+id/header_lastname"
+            app:layout_constraintTop_toBottomOf="@+id/header_lastname"
+            />
+
+        <com.ai.tirios.custom.SPProRegularEditText
+            android:id="@+id/et_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/_15sdp"
+            android:minWidth="@dimen/_50sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:gravity="end"
+            android:hint="@string/please_enter_email_address"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:background="@null"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/header_email"
+            app:layout_constraintTop_toTopOf="@+id/header_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/semi_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_email"/>
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/header_phone_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:text="@string/mobile_number"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintStart_toStartOf="@+id/header_email"
+            app:layout_constraintTop_toBottomOf="@+id/header_email"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/container_mob_no"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/et_btn_height"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/header_phone_no"
+            app:layout_constraintTop_toTopOf="@+id/header_phone_no"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                app:ccp_hideNameCode="true"
+                app:ccp_hidePhoneCode="true"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="false"
+                app:ccp_clickable="false"
+                app:ccp_defaultNameCode="US"
+                android:layout_marginStart="@dimen/_5sdp"/>
+
+            <com.ai.tirios.custom.SFProRegularTextView
+                android:id="@+id/et_phone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:layout_gravity="center"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:background="@null"
+                android:layout_marginEnd="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/header_phone_no"
+                app:layout_constraintTop_toTopOf="@+id/header_phone_no"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/semi_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_phone_no"/>
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:onClick="@{()->my_profile.onChnagePasswordClick()}"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:drawableRight="@drawable/ic_setting_arrow_right"
+            android:drawablePadding="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/change_password"
+            app:layout_constraintStart_toStartOf="@+id/header_phone_no"
+            app:layout_constraintTop_toBottomOf="@+id/header_phone_no"
+            />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@color/semi_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/change_password" />
+
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/rect_solidorange_5corner"
+            android:gravity="center"
+            android:padding="@dimen/dimen15dp"
+            android:text="@string/save_chnages"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen17dp"
+            android:onClick="@{()->my_profile.onSaveChangesClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_password"
+             />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

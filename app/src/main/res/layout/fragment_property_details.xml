@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PropertyDetailsFragment">
+
+    <data>
+
+        <variable
+            name="property_details"
+            type="com.ai.tirios.ui.property_details.PropertyDetailsViewModel" />
+
+        <variable
+            name="property"
+            type="com.ai.tirios.dataclasses.Property" />
+
+        <variable
+            name="isLandlord"
+            type="Boolean" />
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/maintenancebg"
+                android:padding="@dimen/_10sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_arrow_back"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:onClick="@{()->property_details.onBackArrowPressed()}"/>
+
+                <com.ai.tirios.custom.SFProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/properties_details"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <com.ai.tirios.custom.SFProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/edit"
+                    android:textColor="@color/orange"
+                    android:onClick="@{()->property_details.editProperty()}"
+                    android:textSize="@dimen/_15sdp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_170sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_110sdp"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            app:srcCompat="@drawable/ic_home_background" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_view_banner"
+                            android:layout_width="match_parent"
+                            android:minHeight="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_30sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            app:cardElevation="@dimen/_5sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_10sdp">
+
+                                <com.ai.tirios.custom.SFProMediumTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/property"
+                                    android:textColor="@color/black" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/ic_location" />
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:text="@{property.getAddress()}"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp">
+
+                            <com.ai.tirios.custom.SFProRegularTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:text="@string/property_gallery"
+                                android:textColor="@color/black"
+                                android:visibility="@{property.documents.size() == 0 ? View.GONE : View.VISIBLE}"/>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rcView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:nestedScrollingEnabled="false"></androidx.recyclerview.widget.RecyclerView>
+
+                        </LinearLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_5sdp"
+                            android:padding="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_10sdp">
+
+                                <com.ai.tirios.custom.SFProRegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/mortgage_details"
+                                    android:textColor="@color/black" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:orientation="horizontal">
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/mortgage_number" />
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:textColor="@color/black"
+                                        android:text="@{TextUtils.isEmpty(property.mortgageNumber) ? @string/na : property.mortgageNumber}"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal">
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/mortgage_amount" />
+
+                                    <com.ai.tirios.custom.CurrencyTextViewRegular
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:textColor="@color/black"
+                                        android:id="@+id/tv_mortageAmt"
+                                        android:text="@{property.getMortgageAmountInDouble}" />
+
+                                </LinearLayout>
+
+                                <com.ai.tirios.custom.SFProMediumTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:text="@string/property_tax_details"
+                                    android:textColor="@color/black" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:orientation="horizontal">
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/property_tax_no" />
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:textColor="@color/black"
+                                        android:text="@{property.propertyTaxNumber}" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal">
+
+                                    <com.ai.tirios.custom.SFProRegularTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/property_tax_amount" />
+
+                                    <com.ai.tirios.custom.CurrencyTextViewRegular
+                                        android:layout_width="wrap_content"
+                                        android:id="@+id/tv_propertyTaxAmt"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:textColor="@color/black"
+                                        android:text="@{property.getPropertyTaxAmountInDoubleNotDollar}" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <com.ai.tirios.custom.SFProMediumTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@color/gray"
+                            android:text="@string/tenants"
+                            android:textColor="@color/black"
+                            android:padding="@dimen/_10sdp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcView_tenant"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:nestedScrollingEnabled="false"
+                            android:visibility="@{property.tenants.size() == 0 ? View.GONE: View.VISIBLE}"
+                            android:layout_marginBottom="@dimen/_10sdp">
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <com.ai.tirios.custom.SFProRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@string/you_can_add_your_tenant_details_by_tapping"
+                            android:textColor="@color/orange"
+                            android:padding="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:visibility="@{property.tenants.size() == 0 ? View.VISIBLE: View.GONE}"
+                            android:layout_marginBottom="@dimen/_10sdp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <com.ai.tirios.custom.SFProBoldTextView
+            android:id="@+id/tv_add_tenant"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_solidorange_5corner"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="@string/add_tenant"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/white"
+            android:onClick="@{()->property_details.addTenant()}"/>
+
+    </LinearLayout>
+
+</layout>

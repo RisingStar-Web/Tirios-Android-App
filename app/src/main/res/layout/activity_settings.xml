@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="settings"
+            type="com.ai.tirios.ui.setting.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/_10sdp"
+        android:background="@drawable/setttins_bg"
+        tools:context=".ui.setting.SettingsActivity">
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:text="@string/settings"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_2sdp"
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_arrow_back_black"
+            android:onClick="@{()->settings.onBackArrowPressed()}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cardView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginStart="@dimen/dimen15dp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/dimen15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/item_shadow_all_corners"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <ImageView
+                    android:id="@+id/imageViewProfilePic"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    setProfilePhoto="@{settings.imageBitmapBase64Download}"
+                    android:src="@drawable/ic_myprofile" />
+
+                <ImageView
+                    android:id="@+id/imageCapture"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/ic_camera"
+                    android:onClick="@{()->settings.dispatchTakePictureIntent()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageViewProfilePic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.847"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewProfilePic"
+                    app:layout_constraintTop_toTopOf="@+id/imageViewProfilePic"
+                    app:layout_constraintVertical_bias="0.0"/>
+
+                <com.ai.tirios.custom.SFProSemiboldTextView
+                    android:id="@+id/tv_userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="Joe"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewProfilePic" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dimen15dp"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintBottom_toTopOf="@+id/SFProRegularTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <com.ai.tirios.custom.SFProRegularTextView
+            android:id="@+id/SFProRegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:text="@{settings.appVer}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_terms_conditions"
+            app:layout_constraintStart_toStartOf="@+id/tv_terms_conditions" />
+
+        <com.ai.tirios.custom.SFProSemiboldTextView
+            android:id="@+id/tv_terms_conditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:text="@string/terms_amp_conditions"
+            android:textSize="@dimen/_13sdp"
+            android:onClick="@{()->settings.viewContent(@string/tirios_file_terms_condition, @string/tirios_terms_condition)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/recyclerView" />
+
+        <com.ai.tirios.custom.SFProSemiboldTextView
+            android:id="@+id/tv_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_policy"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:onClick="@{()->settings.viewContent(@string/tirios_file_privacypolicy, @string/tirios_privacy_policy)}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_terms_conditions"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+            app:layout_constraintTop_toTopOf="@+id/tv_terms_conditions" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

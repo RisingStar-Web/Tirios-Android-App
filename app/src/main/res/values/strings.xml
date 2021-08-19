@@ -1,0 +1,349 @@
+<resources>
+    <string name="app_name">Tirios</string>
+    <string name="subscription_plans">Subscription Plans</string>
+    <string name="monthly">MONTHLY</string>
+    <string name="annual">ANNUAL</string>
+    <string name="back_to_login">BACK TO LOGIN</string>
+    <string name="dont_worry_you_will_be_starting_note">Don\'t worry! \nYou will be starting on a free trial for three \nmonths to avail our services.</string>
+    <string name="dont_worry">Don\'t worry!</string>
+    <string name="per_property">Per Property</string>
+    <string name="price">$15</string>
+    <string name="first_3_months_no_fee">30-Day Free Trial \n Deactivate Membership Anytime</string>
+    <string name="monthly_fee">Monthly fee</string>
+    <string name="try_for_free">Try for free</string>
+    <string name="per_home">Per home</string>
+    <string name="checkout_prices">Checkout Prices</string>
+    <string name="new_member_sign_up">New Member? Sign Up</string>
+    <string name="already_a_member">Already a member?</string>
+    <string name="login">Login</string>
+    <string name="rights_reserved">© Tirios 2020. All Rights Reserved</string>
+    <string name="enter_mobile_number">Please enter your mobile number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="register">Register</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="submit">Submit</string>
+    <string name="please_enter_otp">Please enter the OTP sent to your mobile number</string>
+    <string name="sec">60 Sec</string>
+    <string name="havent_received_otp">Haven\'t received the OTP?</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="forgot_password_question">Forgot Password?</string>
+    <string name="tirios_all_rights_reserved">© Tirios 2020. All Rights Reserved</string>
+    <string name="all_rights_reserved">All Rights Reserved</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="please_enter_passwrod">Please enter a password</string>
+    <string name="enter_new_password">Enter New Passwrod</string>
+    <string name="enter_confirm_password">Enter Confirm Password</string>
+    <string name="password_regex">Password does not meet minimum complexity requirement. Please enter a valid password</string>
+    <string name="password_alert">Password must be at least 8 characters, contain at least one uppercase, one lowercase, one number and one special character</string>
+    <string name="passoword_not_match">Passwords do not match</string>
+    <string name="welcome">Welcome</string>
+    <string name="home">Home</string>
+    <string name="properties">Properties</string>
+    <string name="maintenance">Maintenance</string>
+    <string name="transactions">Transactions</string>
+    <string name="new_password">New Password</string>
+    <string name="update">Update</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_password">Forgot Password</string>
+
+    <string name="invaid_token">Invalid Token</string>
+    <string name="blank_response">BLANK_RESPONSE</string>
+    <string name="password_is_reset_successfully_please_login_again">Password is reset successfully. Please login again</string>
+    <string name="owned">Owned</string>
+    <string name="rented">Rented</string>
+    <string name="add_property">Add Property</string>
+    <string name="update_property">Update Property</string>
+    <string name="request_deactivation">Request Deactivation</string>
+
+    <string name="tirios_virtual_assistance">Tirios Virtual Assistance</string>
+    <string name="type_a_msg">Type a message</string>
+    <string name="tirios_assistance">Tirios Assistant</string>
+
+    <string name="membership">Membership </string>
+
+    <string name="property_status">Property Status </string>
+
+    <string name="you_are_not_living_in_any_rented_property">You are not living in any rented property</string>
+
+    <string name="properties_details">Property Details</string>
+
+    <string name="edit">Edit</string>
+
+    <string name="property">Property</string>
+
+    <string name="property_tax_amount">Property Tax Amount</string>
+
+    <string name="mortgage_details">Mortgage Details</string>
+
+    <string name="mortgage_amount">Mortgage Amount</string>
+
+    <string name="property_tax_details">Property Tax Details</string>
+
+    <string name="tax_amount">Tax Amount</string>
+
+    <string name="tenants">Tenants</string>
+
+    <string name="you_can_add_your_tenant_details_by_tapping">You can add your tenant details by tapping "Add Tenant"</string>
+
+    <string name="add_tenant">Add Tenant</string>
+
+    <string name="update_tenant">Update Tenant</string>
+
+    <string name="property_gallery">Property Gallery</string>
+
+    <string name="tenant_first_name">Tenant First Name</string>
+
+    <string name="tenant_last_name">Tenant Last Name</string>
+
+    <string name="email_address">Email Address</string>
+
+    <string name="no_of_family_members">No. of family Members</string>
+
+    <string name="rent_deposit">Rent Deposit</string>
+
+    <string name="rent">Rent</string>
+
+    <string name="payment_frequency">Payment Frequency</string>
+
+    <string name="due_date">Due Date</string>
+    <string name="tax_due_date">Tax Due Date</string>
+
+    <string name="upload_lease_agreement">Upload Lease Agreement</string>
+
+    <string name="add">Add</string>
+
+    <string name="first_due_date">First Due Date</string>
+
+    <string name="second_due_data">Second Due Date</string>
+
+    <string name="per_month">Per Month</string>
+
+    <string name="name">Name</string>
+
+    <string name="phone_number">Phone Number</string>
+
+    <string name="send_invite">Send Invite</string>
+
+    <string name="is_the_tenant_residing">Is the tenant residing?</string>
+
+    <string name="please_enter_tenant_first_name">Please Enter Tenant First Name</string>
+
+    <string name="please_enter_tenant_last_name">Please Enter Tenant Last Name</string>
+
+    <string name="please_enter_email_address">Please Enter Email Address</string>
+
+    <string name="please_enter_valid_email_address">Please Enter Valid Email Address</string>
+
+    <string name="please_enter_rent_deposit">Please Enter Rent Deposit</string>
+
+    <string name="please_enter_rent">Please Enter Rent</string>
+
+    <string name="please_enter_due_date">Please Enter Due Date</string>
+
+    <string name="please_enter_first_due_date">Please Enter First Due Date</string>
+
+    <string name="please_enter_second_due_date">Please Enter Second Due Date</string>
+
+    <string name="please_upload_lease_agreement">Please Upload Lease Agreement</string>
+
+    <string name="property_name">Property Name</string>
+
+    <string name="street">Street</string>
+
+    <string name="city">City</string>
+
+    <string name="zip_code">Zip Code</string>
+
+    <string name="state">State</string>
+
+    <string name="mortgage_due_date">Mortgage Due Date</string>
+
+    <string name="photos">Photos</string>
+
+    <string name="please_enter_property_name">Please Enter Property Name</string>
+
+    <string name="please_enter_street_name">Please Enter Street Name</string>
+
+    <string name="please_enter_city_name">Please Enter city Name</string>
+
+    <string name="please_enter_zipcode_name">Please Enter Zipcode</string>
+
+    <string name="please_enter_state_name">Please Enter State Name</string>
+
+    <string name="please_enter_mortgage_number">Please Enter Mortgage Number</string>
+
+    <string name="please_enter_mortgage_amount">Please Enter Mortgage Amount</string>
+
+    <string name="please_enter_mortgage_due_date">Please Enter Mortgage Due Date</string>
+
+    <string name="please_enter_property_tax_no">Please Enter Property Tax No</string>
+
+    <string name="please_enter_tax_amount">Please Enter Tax Amount</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="take_a_video">Take a video</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="choose">Choose</string>
+    <string name="our_team_is_verifying_your_details_and_will_get_back">Our team is verifying your details and will get back to you soon.</string>
+    <string name="unfortunately_your_details_have_failed_the_verification">Unfortunately, your details have failed the verification. Our support team will contact you soon for assistance.</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="profile">Profile</string>
+    <string name="alert">Alert</string>
+    <string name="btnOk">Ok</string>
+    <string name="msgSignOut">Are you sure you want to sign out?</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="Update">Update</string>
+    <string name="please_enter_current_password">Please Enter Current Password</string>
+    <string name="please_enter_new_password">Please Enter New Password</string>
+    <string name="please_enter_confirm_password">Please Enter Confirm Password</string>
+    <string name="passwords_do_not_match">Passwords do not match.</string>
+    <string name="password_validation">Password should have a minimum of 7 characters with at least one alphabet, special character, and number.</string>
+    <string name="password_changed_successfully">Password Changed Successfully.</string>
+    <string-array name="settings_list">
+        <item>"My Profile"</item>
+        <item>"Bank Accounts"</item>
+        <item>"Share App"</item>
+        <item>"Contact Us"</item>
+        <item>"Sign Out"</item>
+    </string-array>
+    <string name="tirios_terms_condition">Terms &amp; Conditions</string>
+    <string name="tirios_privacy_policy">Privacy Policy</string>
+    <string name="tirios_dismiss">Dismiss</string>
+    <string name="tirios_share_msg">Let me recommend you this application</string>
+
+
+    <!-- These file names should be same as assets files  -->
+    <string name="tirios_file_terms_condition">TiriosTermsConditions.pdf</string>
+    <string name="tirios_file_privacypolicy">TiriosPrivacy.pdf</string>
+    <string name="terms_conditions_bank_accounts">TermsConditionsBankAccounts.pdf</string>
+
+
+    <!-- End of Settings  -->
+
+    <string name="logout">Logout</string>
+    <string name="empty_string"></string>
+    <string name="rented_property_details">Property Details</string>
+    <string name="pay_rent">Pay Rent</string>
+    <string name="view_lease_agreement">View Lease Agreement</string>
+    <string name="landlord_details">Landlord Details</string>
+    <string name="bi_monthly">Bi-Monthly</string>
+    <string name="maintenance_request">Maintenance Request</string>
+    <string name="service_request">Service Request</string>
+    <string name="new_service_request">New Service Request</string>
+    <string name="service_id">ServiceID</string>
+    <string name="status">Status</string>
+    <string name="service_category">Service Category</string>
+    <string name="first_preferred_date">First Preferred Date</string>
+    <string name="second_preferred_date">Second Preferred Date</string>
+    <string name="videos">Videos</string>
+    <string name="tenant_name">Tenant Name</string>
+    <string name="tele_service_video_link">Tele Service Video Link</string>
+    <string name="select_property">Select Property</string>
+    <string name="bank_accounts">Bank Accounts</string>
+    <string name="add_account">Add Account</string>
+    <string name="account_type">Account Type</string>
+    <string name="account_number">Account Number</string>
+    <string name="confirm_account_number">Confirm Account Number</string>
+    <string name="routing_number">Routing Number</string>
+    <string name="account_holder_name">Account Holder Name</string>
+    <string name="ssn_required_for_tax_reporting">SSN (Required for tax reporting)</string>
+    <string name="no_bank_accounts_added">No Bank Accounts Added</string>
+    <string name="add_credit_cards">Add Credit Cards</string>
+    <string name="my_profile">My Profile</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_mobile_number_">Enter Mobile number</string>
+    <string name="save_chnages">Save Changes</string>
+    <string name="contact_us_label">Contact</string>
+    <string name="contact_us">Contact Us :</string>
+    <string name="official_contat_no">917-854-5795</string>
+    <string name="phone_number_hint">741-041-0123</string>
+    <string name="email_us">Email us :</string>
+    <string name="official_email_id">members@tirios.ai</string>
+    <string name="please_select_a_bank_account_type">Please select a bank account type</string>
+    <string name="please_add_the_bank_account">Please add the bank account</string>
+    <string name="please_confirm_account_number">Please Confirm Account Number</string>
+    <string name="account_number_does_not_match">Account Numbers does not match</string>
+    <string name="please_enter_account_holder_name">Please Enter Account Holder Name</string>
+    <string name="please_add_the_routing_Number">Please add the routing number</string>
+    <string name="please_enter_a_valid_nine_digit_routing_number">Please enter a valid 9 digit routing number</string>
+    <string name="please_enter_the_ssn">Please enter the SSN</string>
+    <string name="please_enter_valid_ssn">Please Enter Valid SSN</string>
+    <string name="please_enter_a_valid_ten_digit_mobile_number">Please enter a valid 10 digit mobile number</string>
+    <string name="are_you_sure_this_means_that_your_tenant_has">Are you sure? This means that your tenant has vacated your property and you can’t reverse it.</string>
+    <string name="yes">Yes </string>
+    <string name="no">No</string>
+    <string name="add_card">Add Card</string>
+    <string name="card_number">Card Number</string>
+    <string name="cardholder_name">Cardholder Name</string>
+    <string name="validity_date">Validity Date</string>
+    <string name="cvv_number">CVV Number</string>
+    <string name="x_x_x_x">X X X X</string>
+    <string name="please_enter_card_number">Please enter card number</string>
+    <string name="please_enter_card_holder_name">Please enter card holder name</string>
+    <string name="please_enter_card_validity_date">Please enter card validity date</string>
+    <string name="please_enter_a_valid_16_digit_card_number">Please enter a valid 16 digit card number</string>
+    <string name="please_enter_cvv">Please enter CVV</string>
+    <string name="please_check_the_terms_and_conditions">Please check the terms and conditions</string>
+    <string name="my_card_details">My Card Details</string>
+    <string name="saved_card_details">Saved Card Details</string>
+    <string name="select_payment">Select Payment</string>
+    <string name="convenience_fee">A convenience fee of 3.49% applies when paying rent with credit card. There are no refunds on rent payments.</string>
+    <string name="pay">Pay</string>
+    <string name="no_requests">No requests</string>
+    <string name="notifications">Notifications</string>
+    <string name="maintenance_request_details">Maintenance Request Details</string>
+    <string name="please_enter_all_the_fields_and_check">Please enter all the fields and check the terms and conditions to add the bank account</string>
+    <string name="request_activation">Request Activation</string>
+    <string name="pending_deactivation">Pending Deactivation</string>
+    <string name="pending_activation">Pending Activation</string>
+    <string name="invoice">Invoice</string>
+    <string name="please_ask_your_landlord_to_add_a_bank_account">Please ask your landlord to add a bank account in Tirios app.</string>
+    <string name="please_select_account">Please Select Account</string>
+    <string name="Please_enter_first_name">Please enter your first name</string>
+    <string name="enter_valid_first_name">Enter valid first name</string>
+    <string name="please_enter_last_name">Please enter your last name</string>
+    <string name="enter_valid_last_name">Enter valid last name</string>
+    <string name="enter_valid_mobile_number">Enter valid mobile number</string>
+    <string name="enter_valid_password">Enter valid password</string>
+    <string name="enter_valid_confirm_password">Enter valid confirm password</string>
+    <string name="please_enter_the_registered_mobile_number">Please enter the registered mobile number</string>
+    <string name="please_enter_the_OTP_for_verification">Please enter the OTP for verification</string>
+    <string name="OTP_number_is_invalid">OTP number is invalid</string>
+    <string name="resend_otp_will_be_available_only_after_your">Resend OTP will be available only after your current OTP expires</string>
+
+    <string name="facebook_app_id">122005273296444</string>
+    <string name="payment_was_successfully">Payment was successfully</string>
+    <string name="payment_failed">Payment failed</string>
+    <string name="name_surname">NAME LASTNAME</string>
+    <string name="m_m_y_y">M M / Y Y</string>
+    <string name="no_transaction">No transactions</string>
+    <string name="back">Back</string>
+    <string name="mp4">mp4</string>
+    <string name="view_receipt">View Receipt</string>
+    <string name="please_enter_the_security_code">Please enter the security code.</string>
+    <string name="security_code_is_invalid">Security code is invalid.</string>
+    <string name="otp_exp">OTP expired. Click "Resend OTP"</string>
+    <string name="dummy_mobile">201-555-0123</string>
+    <string name="call">Call</string>
+    <string name="email">Email</string>
+    <string name="back_to_signup">Back to Signup</string>
+    <string name="mortgage_acc">Mortgage Account</string>
+    <string name="property_tax_no">Property Tax No</string>
+    <string name="login_phone_number_hint">201-555-0123</string>
+    <string name="mortgage_number">Mortgage Number</string>
+    <string name="na">NA</string>
+    <string name="onboarding_success">Thank you for submitting your details. Our team is reviewing the information and will send you an update when your account is active</string>
+    <string name="thank_you">Thank You</string>
+</resources>

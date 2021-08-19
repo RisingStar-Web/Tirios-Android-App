@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.message_screen.ErrorMessageActivity">
+
+    <data>
+        <variable
+            name="error_message"
+            type="com.ai.tirios.ui.error_message.ErrorMessageViewModel" />
+        <variable
+            name="message"
+            type="String" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_verify_otp">
+
+        <com.ai.tirios.custom.SFProSemiboldTextView
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/white"
+            android:textColor="@color/orange"
+            android:padding="@dimen/_20sdp"
+            android:layout_margin="@dimen/_15sdp"
+            android:text="@{message}"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_error"
+            android:gravity="center">
+
+            <com.ai.tirios.custom.SFProSemiboldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:textColor="@color/white"
+                android:background="@drawable/rect_solidorange_5corner"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:onClick="@{()->error_message.logout()}"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
